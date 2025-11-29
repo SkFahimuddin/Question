@@ -20,7 +20,7 @@ export default function Dashboard({ token, user, onLogout }){
 
   async function fetchSubjects() {
     try {
-      const res = await axios.get('http://localhost:5000/api/questions/subjects', { 
+      const res = await axios.get('https://question-1-203z.onrender.com/api/questions/subjects', { 
         headers: { Authorization: 'Bearer '+token }
       });
       setSubjects(res.data.subjects || []);
@@ -32,7 +32,7 @@ export default function Dashboard({ token, user, onLogout }){
   async function fetchMy(){
     if (!currentSubject) return;
     try{
-      const res = await axios.get(`http://localhost:5000/api/questions/my?subject=${currentSubject}`, { 
+      const res = await axios.get(`https://question-1-203z.onrender.com/api/questions/my?subject=${currentSubject}`, { 
         headers: { Authorization: 'Bearer '+token }
       });
       setMyQuestions(res.data);
@@ -42,7 +42,7 @@ export default function Dashboard({ token, user, onLogout }){
   async function checkCan(){
     if (!currentSubject) return;
     try{
-      const res = await axios.get(`http://localhost:5000/api/paper/can-generate?subject=${currentSubject}`, { 
+      const res = await axios.get(`https://question-1-203z.onrender.com/api/paper/can-generate?subject=${currentSubject}`, { 
         headers: { Authorization: 'Bearer '+token }
       });
       setCanGenerate(res.data.canGenerate);
@@ -57,8 +57,8 @@ export default function Dashboard({ token, user, onLogout }){
   async function generatePaper(selectedSubject) {
     try{
       const endpoint = generationType === 'individual' 
-        ? 'http://localhost:5000/api/individual-paper/generate-individual-paper'
-        : 'http://localhost:5000/api/paper/generate';
+        ? 'https://question-1-203z.onrender.com/api/individual-paper/generate-individual-paper'
+        : 'https://question-1-203z.onrender.com/api/paper/generate';
       
       const win = window.open('about:blank','_blank');
       const res = await axios.get(`${endpoint}?subject=${selectedSubject}`, { 

@@ -10,7 +10,7 @@ export default function Signup(){
   const submit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/auth/signup', { teacherID, name, password });
+      const res = await axios.post('https://question-1-203z.onrender.com/api/auth/signup', { teacherID, name, password });
       setMsg(res.data.message || 'Created');
     }catch(err){
       setMsg(err.response?.data?.message || 'Error');

@@ -9,7 +9,7 @@ export default function Login({ onLogin }){
   const submit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/auth/login', { teacherID, password });
+      const res = await axios.post('https://question-1-203z.onrender.com/api/auth/login', { teacherID, password });
       onLogin(res.data.token, { teacherID: res.data.teacherID, name: res.data.name });
     }catch(err){
       setMsg(err.response?.data?.message || 'Error');

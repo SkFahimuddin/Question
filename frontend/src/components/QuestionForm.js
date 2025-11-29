@@ -24,7 +24,7 @@ export default function QuestionForm({ token, subject, onSaved, onCheck }){
     }
 
     try{
-      const res = await axios.post('http://localhost:5000/api/questions/submit', 
+      const res = await axios.post('https://question-1-203z.onrender.com/api/questions/submit', 
         { questionText, marks: Number(marks), co, k, module, subject },
         { headers: { Authorization: 'Bearer '+token }}
       );
