@@ -444,7 +444,7 @@ function generateIndividualPaperHTML(format, allQuestions, subject) {
           document.getElementById('questionsList').innerHTML = '<p>Searching...</p>';
           
           try {
-            const response = await fetch('http://localhost:5000/api/individual-paper/search-replacements', {
+            const response = await fetch('https://question-1-203z.onrender.com/api/individual-paper/search-replacements', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
